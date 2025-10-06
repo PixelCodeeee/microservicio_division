@@ -1,11 +1,14 @@
 package mx.edu.uteq.idgs12.microservicio_division.entity;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -19,8 +22,7 @@ public class ProgramaEducativo {
     private long id;
     private String nombre;
     private Boolean activo;
-    @ManyToOne
-@JoinColumn(name = "division_id")
-private Division division;
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "divicion_id")
+    private List<ProgramaEducativo> ProgramaEducativo;
 }
