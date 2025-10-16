@@ -15,7 +15,7 @@ public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    private Boolean activo;
     private String nombre;
 
 }

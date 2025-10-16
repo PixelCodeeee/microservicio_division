@@ -2,6 +2,8 @@ package mx.edu.uteq.idgs12.microservicio_division.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +24,9 @@ public class ProgramaEducativo {
     private long id;
     private String nombre;
     private Boolean activo;
+   @JsonIgnore 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "divicion_id")
     private List<ProgramaEducativo> ProgramaEducativo;
+
 }
