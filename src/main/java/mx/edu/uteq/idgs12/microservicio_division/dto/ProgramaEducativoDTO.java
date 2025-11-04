@@ -9,7 +9,5 @@ public class ProgramaEducativoDTO {
     private String nombre;
     private Boolean activo;
     private Long divisionId;
-
-    //COMENTARIO DE EJEMPLO
 }
 

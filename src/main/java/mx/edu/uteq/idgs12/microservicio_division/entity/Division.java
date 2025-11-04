@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data
@@ -16,6 +17,10 @@ public class Division {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+    
+    @Column(name = "activo")
+    private Boolean activo = true;
 
 }
