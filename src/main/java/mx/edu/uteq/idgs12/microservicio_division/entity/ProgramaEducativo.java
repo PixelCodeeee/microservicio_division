@@ -1,17 +1,15 @@
 package mx.edu.uteq.idgs12.microservicio_division.entity;
 
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
+/**
+ * Entidad Programa Educativo
+ * Representa carreras/programas académicos
+ * 
+ * Relationship: Division (1) → ProgramaEducativo (N)
+ * Many programs belong to one division
+ */
 @Data
 @Entity
 @Table(name = "programa_educativo")
@@ -19,10 +17,16 @@ public class ProgramaEducativo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+    
+    @Column(nullable = false)
     private String nombre;
-    private Boolean activo;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "divicion_id")
-    private List<ProgramaEducativo> ProgramaEducativo;
+    
+    @Column(nullable = false)
+    private Boolean activo = true;
+    
+    // Many-to-One: Many programs belong to one division
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "division_id", nullable = false)
+    private Division division;
 }

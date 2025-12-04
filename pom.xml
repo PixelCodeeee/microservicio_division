@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>mx.edu.uteq.idgs12</groupId>
 	<artifactId>microservicio_division</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>microservicio_division</name>
 	<description>Demo project for Spring Boot</description>
 	
@@ -27,11 +27,7 @@
 		</dependency>
 		
 		<!-- H2 Database -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+		
 		
 		<!-- JPA -->
 		<dependency>
